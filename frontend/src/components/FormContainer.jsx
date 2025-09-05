@@ -4,7 +4,7 @@ import Step1Name from './steps/Step1Name';
 import Step2Wheels from './steps/Step2Wheels';
 import Step3Type from './steps/Step3Type';
 import Step4Model from './steps/Step4Model';
-import Step5Date from './steps/Step4Model';
+import Step5Date from './steps/Step5Date';
 
 const FormContainer = () => {
 
