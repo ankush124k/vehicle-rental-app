@@ -74,3 +74,5 @@ Thumbs.db
 *.temp
 
 This file is comprehensive and should cover most common cases for a Node.js backend project. You can customize it further based on your specific project needs.
+
+/generated/prisma
