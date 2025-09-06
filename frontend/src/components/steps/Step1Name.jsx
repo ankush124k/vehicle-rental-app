@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setName, nextStep } from '../../store/formSlice';
-import { TextField, Typography, Box, Alert } from '@mui/material';
+import { Box, TextField, Typography } from '@mui/material';
 import FormNavigation from '../FormNavigation';
 
 const Step1Name = () => {
@@ -12,31 +12,29 @@ const Step1Name = () => {
   const [error, setError] = useState('');
 
   const handleNext = () => {
-    if (!localFirstName || !localLastName) {
+    if (!localFirstName.trim() || !localLastName.trim()) {
       setError('Both first and last name are required.');
       return;
     }
-    setError('');
-
+    setError(''); 
     dispatch(setName({ firstName: localFirstName, lastName: localLastName }));
     dispatch(nextStep());
   };
 
   return (
     <Box>
-      <Typography variant="h5" sx={{ mb: 2 }}>
+      <Typography variant="h5" component="h2" sx={{ mb: 2 }}>
         First, what's your name?
       </Typography>
-      {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
-
       <TextField
         fullWidth
         label="First Name"
         variant="outlined"
         value={localFirstName}
         onChange={(e) => setLocalFirstName(e.target.value)}
+        error={!!error}
+        helperText={error}
         sx={{ mb: 2 }}
-        error={!!error && !localFirstName}
       />
       <TextField
         fullWidth
@@ -44,10 +42,12 @@ const Step1Name = () => {
         variant="outlined"
         value={localLastName}
         onChange={(e) => setLocalLastName(e.target.value)}
-        error={!!error && !localLastName} 
+        error={!!error}
+        sx={{ mb: 2 }}
       />
-      
-      <FormNavigation onNext={handleNext} />
+      <FormNavigation
+        onNext={handleNext}
+      />
     </Box>
   );
 };

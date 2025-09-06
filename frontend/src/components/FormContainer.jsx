@@ -5,10 +5,14 @@ import Step2Wheels from './steps/Step2Wheels';
 import Step3Type from './steps/Step3Type';
 import Step4Model from './steps/Step4Model';
 import Step5Date from './steps/Step5Date';
+import BookingConfirmation from './BookingConfirmation ';
 
 const FormContainer = () => {
+  const { currentStep, bookingStatus } = useSelector((state) => state.form);
 
-  const { currentStep } = useSelector((state) => state.form);
+  if (bookingStatus === 'succeeded') {
+    return <BookingConfirmation />;
+  }
 
   const renderStep = () => {
     switch (currentStep) {

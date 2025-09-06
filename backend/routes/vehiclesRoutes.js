@@ -3,6 +3,6 @@ const router = express.Router();
 const prisma = require('../prisma/client');
 const { getVehiclesList } = require('../controllers/vehiclesContollers');
 
-router.get('/getList', getVehiclesList);
+router.get('/', getVehiclesList);
 
 module.exports = router;
