@@ -1,7 +1,16 @@
+// import axios from 'axios';
+
+// const apiClient = axios.create({
+//   baseURL: 'https://vehicle-rental-app-mm9z.onrender.com/api',
+// });
+
+// export default apiClient;
+
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: import.meta.env.VITE_REACT_BASE_URL,
 });
 
 export default apiClient;
+
