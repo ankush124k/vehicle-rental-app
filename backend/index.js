@@ -6,7 +6,10 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const allowedOrigins = [
   'http://localhost:5173',                      
-  'https://vehicle-rental-app-tau.vercel.app'   
+  'https://vehicle-rental-app-tau.vercel.app',
+  'https://vehicle-rental-gynnkjtwp-ankush124ks-projects.vercel.app/',
+  'https://vehicle-rental-app-git-main-ankush124ks-projects.vercel.app/',
+  'https://vehicle-rental-app-tau.vercel.app/'   
 ];
 
 const corsOptions = {
@@ -30,6 +33,8 @@ app.get('/', (req, res) => {
   res.send('Hello from the Vehicle Rental App Backend!');
 });
 
+app.use('/api',indexRoutes);
+
 app.listen(PORT, (error) => {
     if(error){
         console.log(`server stopped ${error}`);
@@ -41,4 +46,3 @@ app.listen(PORT, (error) => {
 });
 
 
-app.use('/api',indexRoutes)
